@@ -10,6 +10,19 @@ namespace PatternAdapter
     {
         static void Main(string[] args)
         {
+            IExistingInterface existingInterface = new
+            ExistingImplementation();
+            ITarget adapter = new Adapter(existingInterface);
+
+            // Вызов метода CalculateAverage через класс-адаптер
+            int average = adapter.CalculateAverage();
+            Console.WriteLine($"Среднее значение = {average}");
+
+            // Вызов метода CalculateSum через класс-адаптер
+            int sum = adapter.CalculateSum();
+            Console.WriteLine($"Сумма = {sum}");
+
+            Console.ReadLine();
         }
     }
 }
